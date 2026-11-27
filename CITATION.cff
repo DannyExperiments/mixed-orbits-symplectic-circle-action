@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Please cite the archived version of this mathematical result."
+type: software
+title: "A locally free symplectic circle action with contractible and noncontractible orbits"
+authors:
+  - name: "DannyExperiments"
+version: "1.0.0"
+repository-code: "https://github.com/DannyExperiments/mixed-orbits-symplectic-circle-action"
+doi: "10.5281/zenodo.24601938"
+date-released: "2026-11-28"
+keywords:
+  - "symplectic circle actions"
+  - "locally free actions"
+  - "contractibility of orbits"
+  - "fundamental group"
+  - "finite covering spaces"
+  - "cyclic quotients"
+  - "Hamiltonian actions"

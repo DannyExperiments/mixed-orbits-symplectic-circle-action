@@ -1,0 +1,53 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.08in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}
+\raggedbottom
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cyc}{C_m}
+\title[Mixed orbit contractibility]{A locally free symplectic circle action with contractible and noncontractible orbits}
+\date{}
+\begin{document}
+\begin{abstract}
+For every integer \(m\geq 2\) and every even dimension at least eight, we construct a closed connected symplectic manifold with an effective, locally free, non-Hamiltonian circle action. Its principal orbit inclusions are null-homotopic. Each exceptional orbit represents an element of exact order \(m\) in the fundamental group. A diagonal cyclic quotient of the product of a Kotschick six-manifold and a rotating two-sphere gives the example. This answers the dimension-unrestricted existence question of Henigman and Karshon.
+\end{abstract}
+\maketitle
+\section{Question and result}
+Henigman and Karshon \cite[Question 8.2]{HK} ask whether a non-Hamiltonian, symplectic, locally free circle action on a closed connected symplectic manifold can have both contractible and noncontractible orbits. An orbit through \(x\) is the embedded circle \(S^1/\operatorname{Stab}(x)\). Its inclusion traces one primitive geometric circuit. The orbit map \(t\mapsto t\cdot x\) with domain the acting circle travels around this embedded circle as many times as the order of the stabilizer.
+
+\begin{theorem}
+For every \(m\geq2\) and \(k\geq0\), a closed connected symplectic manifold of dimension \(8+2k\) admits an effective, locally free, non-Hamiltonian symplectic \(S^1\)-action whose principal orbit inclusions are null-homotopic and whose exceptional orbit inclusions represent elements of exact order \(m\) in the fundamental group.
+\end{theorem}
+
+\begin{proof}
+Kotschick \cite[Theorem 2]{K} supplies a closed connected symplectic six-manifold \((P,\omega)\) with a free symplectic circle action and contractible orbits. Fix such an action. Let \(\zeta=\exp(2\pi i/m)\) and let \(R\) rotate a round area sphere \((S^2,\sigma)\) through angle \(2\pi/m\) about its polar axis. Define
+\[
+   g(p,s)=(\zeta\cdot p,R(s)),\qquad
+   M=(P\times S^2)/\langle g\rangle .
+\]
+Here \(g\) has order \(m\). No power \(g^j\), \(0<j<m\), fixes any point, by freeness of the action on \(P\). Thus the projection \(q:P\times S^2\to M\) is a regular covering with deck group \(\cyc\). Both factors preserve their symplectic forms, so the product form descends uniquely to \(M\). It is closed and nondegenerate because \(q\) is a local diffeomorphism. The quotient is closed, connected and eight-dimensional.
+
+The circle action on the first factor commutes with \(g\) and descends as \(t\cdot q(p,s)=q(t\cdot p,s)\). It preserves the descended form. The equality \(q(t\cdot p,s)=q(p,s)\) holds precisely when there is some \(j\) such that \(t\cdot p=\zeta^j\cdot p\) and \(s=R^j(s)\). The first equation forces \(t=\zeta^j\). The stabilizer is trivial away from the poles and is all of \(\cyc\) over either pole. The descended action is therefore effective, locally free and has no fixed point. If it had a Hamiltonian, a maximum would be a point at which the Hamiltonian differential vanishes. Nondegeneracy of the symplectic form would force the generating vector field to vanish there, giving a fixed point.
+
+For nonpolar \(s\), one circuit of the orbit beginning at \(q(p,s)\) lifts to \(u\mapsto(e^{2\pi i u}\cdot p,s)\) for \(0\leq u\leq1\). This loop bounds a disk map in \(P\times\{s\}\) by Kotschick's theorem. Projecting the disk proves contractibility downstairs.
+
+At a pole, one circuit instead lifts to \(u\mapsto(e^{2\pi i u/m}\cdot p,s)\). The endpoint is \(g(p,s)=(\zeta\cdot p,s)\), distinct from the start. More generally the lift of the \(j\)-fold orbit loop ends at \(g^j(p,s)\). A null-homotopic loop must have closed lift, so \(m\) divides every exponent \(j>0\) annihilating the loop class. Its \(m\)-th power lifts to the full circle in \(P\times\{s\}\), which bounds a disk. Projection shows that the class has order exactly \(m\).
+
+Finally take \(M\times(S^2)^k\) with the product form and the circle acting trivially on the extra factors. The projection to \(M\) retracts the inclusion of \(M\) at fixed sphere coordinates. This preserves the orders of the orbit classes. The stabilizers are unchanged, so the same fixed-point argument proves that the enlarged action is non-Hamiltonian.
+\end{proof}
+
+\section{Example and scope}
+For \(m=3\), a primitive polar orbit lifts to an arc spanning one third of the upstairs circle. Its second iterate ends at \(\zeta^2\cdot p\), and its third iterate bounds a disk after it closes. A primitive nonpolar orbit already lifts to the entire contractible circle on its first circuit. Thus every orbit map from the acting circle is null-homotopic, although the primitive polar orbit is noncontractible. This is consistent with the homotopy of the orbit maps at different points in a connected manifold \cite[Lemma 3.1]{HK}.
+
+Pelayo \cite[Example~2.8]{Pelayo} had already used a diagonal half-turn of the sphere and a half-period translation of a torus. In that quotient, doubling the moving torus coordinate defines a circle-valued function of degree two along a primitive regular orbit and degree one along a primitive polar orbit. Both classes have infinite order. Henigman's coprime-slope action \cite[Appendix~A.1]{H} likewise realizes arbitrary cyclic polar stabilizers while the torus coordinate detects infinite order for both types. Replacing the torus translation by Kotschick's action makes the full upstairs circuit contractible and hence makes the primitive polar class torsion.
+
+The product with \(S^2\) in the initial construction supplies the two distinct types of stabilizers. The six-dimensional case highlighted separately in \cite[Section 8.1]{HK} remains outside this construction. The finite deck-group replay illustrates the endpoint calculation; the covering and null-homotopy arguments prove the order claim for all \(m\).
+
+\medskip
+\noindent\textit{Preparation and review.}
+AI systems assisted with the proof record and its checks under human direction. Internally reviewed, not peer reviewed.
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}

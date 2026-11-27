@@ -1,0 +1,21 @@
+{
+  "title": "A locally free symplectic circle action with contractible and noncontractible orbits",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "version": "1.0.0",
+  "creators": [
+    {
+      "name": "DannyExperiments"
+    }
+  ],
+  "keywords": [
+    "symplectic circle actions",
+    "locally free actions",
+    "contractibility of orbits",
+    "fundamental group",
+    "finite covering spaces",
+    "cyclic quotients",
+    "Hamiltonian actions"
+  ],
+  "description": "Can a symplectic circle action on a closed connected manifold have finite stabilizers everywhere, with one embedded orbit contractible and another noncontractible? This preprint answers Question 8.2 of Henigman and Karshon in every even dimension at least eight. For any integer m ≥ 2, the ordinary orbit loops contract, and the primitive exceptional loops have exact order m in the fundamental group. The action is effective and non-Hamiltonian.\n\nThe proof begins with Kotschick’s free symplectic circle action with contractible orbits on a closed six-manifold. Take its product with a rotating sphere and divide by a free diagonal cyclic action of order m. Away from the poles one primitive orbit lifts to a full contractible circle. At either pole it lifts only through 1/m of the circle and ends on a different covering sheet. Exactly the multiples of m close upstairs, and the mth power contracts.\n\nPelayo’s Example 2.8 already uses the same diagonal sphere rotation and torus translation for m = 2. Henigman’s coprime-slope examples realize arbitrary cyclic stabilizers. In both precedents the relevant torus coordinate detects infinite order for both types of orbit. The contribution here is replacing the upstairs translation by Kotschick’s action and deriving mixed contractibility with prescribed finite order. The six-dimensional case remains open in the literature reviewed. No general priority claim is made.\n\nThe director checked the proof and the theorem used as input. An exact finite replay checks the stabilizer and endpoint counts at polar and nonpolar levels for every m from 2 to 64. The paper proves the claim for every m. The proof is not Lean-formalized. The six archival files are the paper, LaTeX source, bibliography, citation metadata, checksum ledger and complete evidence bundle. Internally reviewed, not peer reviewed.\n\nThe discovery project credits ChatGPT Astra 6.2 (OpenAI). OpenAI Codex prepared and examined the manuscript, proof, replay and visual material. GPT-6.2 Sol checked the primary literature. DannyExperiments is the citation identity."
+}

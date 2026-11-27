@@ -1,0 +1,3 @@
+PASS: 126 polar and nonpolar models for orders 2 through 64
+PASS: primitive period, sheet displacement and first closed iterate
+m=3 primitive polar endpoints: 1, 2, 0; nonpolar endpoints: 0, 0, 0

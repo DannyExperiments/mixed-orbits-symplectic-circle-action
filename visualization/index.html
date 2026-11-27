@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lift one primitive circuit</title>
+<style>
+*{box-sizing:border-box}body{max-width:52rem;margin:3vw auto;padding:1rem;font:17px/1.5 system-ui,sans-serif;background:#fbf8f1;color:#173b46}h1{font:2.2rem/1.1 Georgia,serif;margin:.2em 0}figure{margin:1.1rem 0}canvas{width:100%;height:auto;border-bottom:1px solid #c6d1cc}fieldset{display:flex;flex-wrap:wrap;gap:.8rem 1.5rem;border:1px solid #a3b4b1;padding:.75rem}label{display:grid;gap:.15rem;min-width:8rem}select,input{font:inherit;accent-color:#0a7265}output{display:block;margin:.8rem 0;font-weight:bold}footer{color:#47636b}
+</style><h1>Lift one primitive circuit</h1><p>Fix a point of the sphere. The ring below represents its upstairs circle in the six-manifold. The highlighted path lifts the selected number of circuits of the geometric orbit downstairs.</p>
+<fieldset><legend>Orbit parameters</legend>
+<label>Sphere point<select id="pole"><option value="1">Pole</option><option value="0">Away from poles</option></select></label>
+<label>Deck group order <input id="m" type="range" min="2" max="12" value="3"></label>
+<label>Circuits downstairs <input id="n" type="range" min="0" max="12" value="1"></label>
+<label>Viewing angle <input id="view" type="range" min="-180" max="180" value="-28"></label></fieldset>
+<figure><canvas id="plot" width="760" height="320" aria-label="Tilted ring with lifted path, starting point, and endpoint"></canvas>
+<output id="result" aria-live="polite"></output><figcaption>At a pole, every deck translate of the starting point lies on the same ring. Away from the poles, its nonidentity translates lie over other sphere points.</figcaption></figure>
+<footer>A full upstairs turn bounds a disk in the Kotschick manifold. This schematic shows the lift and its endpoints; the contracting disk uses ambient directions outside the ring.</footer>
+<script>
+const el=id=>document.getElementById(id);
+function draw(){
+ const m=Number(el('m').value), n=Number(el('n').value), polar=el('pole').value==='1';
+ const turns=polar?n/m:n, sheet=polar?(n%m):0, phi=Number(el('view').value)*Math.PI/180;
+ const ctx=el('plot').getContext('2d'), tau=2*Math.PI;
+ ctx.clearRect(0,0,760,320);
+ const pos=t=>[380+239*Math.cos(t+phi),151+84*Math.sin(t+phi)+15*Math.cos(t+phi)];
+ function line(end,col,w){ctx.beginPath();for(let j=0;j<=200;j++){const xy=pos(end*j/200);if(j===0)ctx.moveTo(...xy);else ctx.lineTo(...xy)}ctx.strokeStyle=col;ctx.lineWidth=w;ctx.stroke()}
+ function dot(xy,r,col){ctx.beginPath();ctx.arc(...xy,r,0,tau);ctx.fillStyle=col;ctx.fill()}
+ line(tau,'#b5c3be',4);if(n>0)line(Math.min(turns,1)*tau,polar?'#b74324':'#0a7265',7);
+ if(polar){for(let j=0;j<m;j++){const p=pos(tau*j/m);dot(p,5,'#173b46');ctx.fillStyle='#173b46';ctx.font='16px system-ui';ctx.textAlign='center';ctx.fillText(String(j),p[0]+19*Math.cos(tau*j/m+phi),p[1]+22*Math.sin(tau*j/m+phi)+4)}}
+ dot(pos(0),11,'#173b46');dot(pos(0),7,'#fbf8f1');dot(pos(turns*tau),5,polar?'#b74324':'#0a7265');
+ ctx.font='18px system-ui';ctx.fillStyle='#173b46';ctx.textAlign='center';ctx.fillText('Outlined dot: starting lift.  Filled dot: ending lift.',380,290);
+ el('result').textContent='Order '+m+' · '+n+' circuit'+(n===1?'':'s')+' · '+(polar?(n+'/'+m):String(n))+' upstairs turn'+(turns===1?'':'s')+' · endpoint on sheet '+sheet+'. '+(sheet===0?'The lift is closed.':'The lift is open.');
+}document.querySelectorAll('input,select').forEach(e=>e.addEventListener('input',draw));draw();
+</script></html>
